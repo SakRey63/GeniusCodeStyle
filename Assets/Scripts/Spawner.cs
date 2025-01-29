@@ -19,13 +19,13 @@ public class Spawner : MonoBehaviour
     {
         WaitForSeconds delay = new WaitForSeconds(_delay);
         
-        while (true)
+        while (enabled)
         {
             Vector3 direction = (_targetToShoot.position - transform.position).normalized;
             
             Bullet bullet = Instantiate(_prefab, transform.position + direction, Quaternion.identity);
 
-            bullet.GetSetting(direction, _speed, _targetToShoot);
+            bullet.Initialize(direction, _speed, _targetToShoot);
 
             yield return delay;
         }

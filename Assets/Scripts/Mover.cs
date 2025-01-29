@@ -2,18 +2,11 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] private Transform _point;
     [SerializeField] private float _speed;
-    [SerializeField] private Spawner _spawner;
+    [SerializeField] private Transform[] _points;
     
-    private Transform[] _points;
     private int _currentPointIndex;
     private float _epsilon = 0.1f;
-    
-    void Start()
-    {
-        GetTargetPoints();
-    }
     
     public void Update()
     {
@@ -26,16 +19,6 @@ public class Mover : MonoBehaviour
         if ((transform.position - target.position).sqrMagnitude < _epsilon)
         {
             NextTargetPosition();
-        }
-    }
-
-    private void GetTargetPoints()
-    {
-        _points = new Transform[_point.childCount];
-        
-        for (int i = 0; i < _point.childCount; i++)
-        {
-            _points[i] = _point.GetChild(i);
         }
     }
     

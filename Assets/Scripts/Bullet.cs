@@ -15,8 +15,6 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         Move();
-        
-        
     }
     
     private void Move()
@@ -25,7 +23,7 @@ public class Bullet : MonoBehaviour
         transform.LookAt(_target);
     }
     
-    public void GetSetting(Vector3 direction, float speed, Transform targetToShoot)
+    public void Initialize(Vector3 direction, float speed, Transform targetToShoot)
     {
         _direction = direction;
         _speed = speed;
